@@ -1,0 +1,11 @@
+[
+  {
+    "id": "sample-1",
+    "category": "ai",
+    "label": "AI",
+    "date": "2026-06-30",
+    "title": "AI自動ブログのテスト記事",
+    "excerpt": "これは最初から入っているサンプル記事です。GitHub Actionsを動かすと記事が増えます。",
+    "body": "## これはサンプルです\\nGitHub Actionsを実行すると、AIが新しい記事を作ってposts.jsonに追加します。\\n\\n- GitHub Pagesで表示\\n- GitHub Actionsで自動更新\\n- OpenAI APIで本文生成"
+  }
+]

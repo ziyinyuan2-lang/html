@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorldFun Blog</title>
+  <meta name="description" content="AIが自動で記事を書いて更新するWorldFunブログです。">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="top-line"></div>
+  <div class="bg-grid"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#">World<span>Fun</span></a>
+
+    <button class="menu-button" id="menuButton" aria-label="メニューを開く">☰</button>
+
+    <nav class="nav" id="nav">
+      <a href="#home">ホーム</a>
+      <a href="#posts">記事</a>
+      <a href="#about">説明</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">AI AUTO BLOG</p>
+        <h1>AIが自動で、<br>ブログを書く。</h1>
+        <p class="hero-text">
+          GitHub Actionsが決まった時間に動いて、AIが記事を書き、
+          posts.jsonを更新します。GitHub Pagesのサイトに自動で表示されます。
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#posts">記事を見る</a>
+          <a class="button ghost" href="https://github.com/ziyinyuan2-lang/html/actions" target="_blank" rel="noopener">手動で生成</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-title">Auto Blog Status</div>
+
+        <div class="status-list">
+          <div>
+            <strong id="postCount">0</strong>
+            <span>公開中の記事</span>
+          </div>
+          <div>
+            <strong>Daily</strong>
+            <span>毎日自動生成</span>
+          </div>
+          <div>
+            <strong>GitHub</strong>
+            <span>Pages + Actions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-layout" id="posts">
+      <div class="blog-main">
+        <div class="section-head left">
+          <p>Latest Articles</p>
+          <h2>最新記事</h2>
+        </div>
+
+        <div class="tools">
+          <input type="search" id="searchInput" placeholder="記事を検索..." aria-label="記事を検索">
+
+          <div class="category-tabs" id="categoryTabs">
+            <button class="active" data-category="all">全部</button>
+            <button data-category="music">音楽</button>
+            <button data-category="video">動画</button>
+            <button data-category="design">デザイン</button>
+            <button data-category="game">ゲーム</button>
+            <button data-category="ai">AI</button>
+            <button data-category="diary">日記</button>
+          </div>
+        </div>
+
+        <div class="post-list" id="postList">
+          <div class="empty">記事を読み込み中...</div>
+        </div>
+      </div>
+
+      <aside class="sidebar" id="about">
+        <section class="side-card">
+          <h3>これは何？</h3>
+          <p>
+            AIが記事を書いて、GitHub Actionsが自動で保存します。
+            あなたは毎回script.jsを書き換えなくてOKです。
+          </p>
+        </section>
+
+        <section class="side-card">
+          <h3>カテゴリ</h3>
+          <div class="side-links">
+            <a href="#posts" data-side-category="music"><span>音楽</span><b>music</b></a>
+            <a href="#posts" data-side-category="video"><span>動画</span><b>video</b></a>
+            <a href="#posts" data-side-category="design"><span>デザイン</span><b>design</b></a>
+            <a href="#posts" data-side-category="game"><span>ゲーム</span><b>game</b></a>
+            <a href="#posts" data-side-category="ai"><span>AI</span><b>ai</b></a>
+          </div>
+        </section>
+
+        <section class="side-card">
+          <h3>使い方</h3>
+          <ol class="howto-list">
+            <li>GitHubにファイルをアップロード</li>
+            <li>OPENAI_API_KEYをSecretsに追加</li>
+            <li>ActionsでAuto Blog Writerを実行</li>
+            <li>記事が自動で増える</li>
+          </ol>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div class="modal" id="postModal" aria-hidden="true">
+    <div class="modal-bg" id="modalBg"></div>
+    <article class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="閉じる">×</button>
+      <p class="post-meta" id="modalMeta"></p>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+    </article>
+  </div>
+
+  <footer class="footer">© 2026 WorldFun Blog. All Rights Reserved.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
